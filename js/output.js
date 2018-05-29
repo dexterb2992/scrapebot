@@ -1,3 +1,12 @@
+$.ajax({
+    url:'../try.php',
+    type: 'get',
+    complete: function (data){
+        console.log(data);
+    }
+});
+
+
 var DefaultMinWidth = 0,
     DefaultMinHeight = 0;
 var OutputManger = function() {};
@@ -141,7 +150,10 @@ OutputManger.prototype = {
                 min_width: e,
                 min_height: g
             })) {
-            var f = '<li class="selectedimg"><img class="aimg" title="' + chrome.i18n.getMessage("aimg_tooltip") + '" src="' + a + '" data-src="' + a + '" data-wh="' + c + "x" + h + '" data-whsum="' + b + '" data-index="' + i.index + '" /><span class="picurl">' + a + '</span><span class="info"><img class="share_sina simple_tool" src="../img/sina.png" title="' + chrome.i18n.getMessage("share_sina") + '"/><img class="open_link simple_tool" src="../img/link.png" title="Open Image in New Tab"/><span class="wh">' + c + "x" + h + "<span></span></li>";
+            var f = '<li class="selectedimg"><img class="aimg" title="' + chrome.i18n.getMessage("aimg_tooltip") +
+                        '" src="' + a + '" data-src="' + a + '" data-wh="' + c + "x" + h + '" data-whsum="' + b +
+                        '" data-index="' + i.index + '" /><span class="picurl">' + a +
+                        '</span><span class="info"><span class="wh">' + c + "x" + h + "<span></span></li>";
             $("#list").append(f);
             this.resizeImage()
         }
